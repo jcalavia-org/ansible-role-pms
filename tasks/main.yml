@@ -1,2 +1,37 @@
 ---
 # tasks file for jcalavia.pms
+
+- name: 'Add the Plex apt signing key'
+  become: true
+  apt_key:
+    url: 'https://downloads.plex.tv/plex-keys/PlexSign.key'
+    state: 'present'
+
+- name: 'Ensure apt-transport-https is installed'
+  become: true
+  apt:
+    name: 'apt-transport-https'
+    state: present
+
+- name: 'Add the Plex Ubuntu repo'
+  become: true
+  apt_repository:
+    repo: 'deb https://downloads.plex.tv/repo/deb public main'
+    state: 'present'
+
+- name: 'Install the latest version of Plex Media Server'
+  become: true
+  apt:
+    name: 'plexmediaserver'
+    state: 'present'
+    update_cache: yes
+  notify: 'restart-plex'
+
+- meta: flush_handlers
+
+- name: 'Start the plexmediaserver daemon'
+  become: true
+  service:
+    name: 'plexmediaserver'
+    state: 'started'
+    enabled: 'yes'

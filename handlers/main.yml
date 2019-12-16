@@ -1,2 +1,8 @@
 ---
 # handlers file for jcalavia.pms
+
+- name: 'restart-plex'
+  become: true
+  service:
+    name: 'plexmediaserver'
+    state: 'restarted'
