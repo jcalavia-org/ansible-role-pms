@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  author: Jorge Calavia
+  description: Plex Media Server installation role
+  company: Jorge Calavia's Organization
+
+  license: MIT
+
+  min_ansible_version: 1.2
+
+  platforms:
+  - name: Ubuntu
+    versions:
+      - 18.04
+
+  galaxy_tags: []
+
+dependencies: []
