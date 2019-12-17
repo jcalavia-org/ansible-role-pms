@@ -21,9 +21,8 @@ script:
   - molecule test
 
 notifications:
-  webhooks: 
   if: branch = master 
-  urls:
-    - https://galaxy.ansible.com/api/v1/notifications/
+    webhooks: 
+      - url: https://galaxy.ansible.com/api/v1/notifications/
 
   slack: jcalavia-org:UaZ60aCeDgo6ISl60fd5vgXf
