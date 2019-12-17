@@ -20,9 +20,6 @@ script:
   # Run tests.
   - molecule test
 
-if: branch = master 
-  notifications:
-    webhooks: https://galaxy.ansible.com/api/v1/notifications/
-
 notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
   slack: jcalavia-org:UaZ60aCeDgo6ISl60fd5vgXf
