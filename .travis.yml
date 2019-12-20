@@ -10,12 +10,6 @@ install:
   # Install test dependencies.
   - pip install molecule docker
 
-before_script:
-  # Use actual Ansible Galaxy role name for the project directory.
-  - cd ../
-  - mv ansible-role-$ROLE_NAME jcalavia-org.$ROLE_NAME
-  - cd jcalavia-org.$ROLE_NAME
-
 script:
   # Run tests.
   - molecule test
